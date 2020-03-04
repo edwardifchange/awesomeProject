@@ -42,7 +42,7 @@ func Receive() {
 
 	//应用场景：多个协程从文件中读取，一个协程接收读取到的数据
 	for {
-		select {
+		select {//接收多个管道
 		case num := <-chanInt:
 			fmt.Println("num : ", num)
 		case <-timeout:
