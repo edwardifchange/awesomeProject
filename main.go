@@ -5,7 +5,6 @@ import (
 	"awesomeProject/interface_demo"
 	"fmt"
 	"reflect"
-	"runtime"
 	"time"
 )
 
@@ -73,11 +72,16 @@ func main() {
 
 	//并发
 	//fmt.Printf("cpu num = %d", runtime.NumCPU())
-	runtime.GOMAXPROCS(runtime.NumCPU() - 1)
+	//runtime.GOMAXPROCS(runtime.NumCPU() - 1)
+	//go goroutine.Loop()
+	//go goroutine.Loop()
+	//time.Sleep(time.Second * 5)
 
-	go goroutine.Loop()
-	go goroutine.Loop()
-	time.Sleep(time.Second * 5)
+	//启动发送数据的协程
+	go goroutine.Send()
+	//启动接收数据的协程
+	go goroutine.Receive()
+	time.Sleep(time.Second * 10)
 }
 
 func action(test interface_demo.Behavior) string {
