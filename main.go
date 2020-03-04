@@ -1,11 +1,12 @@
 package main
 
 import (
+	"awesomeProject/goroutine"
 	"awesomeProject/interface_demo"
-	"awesomeProject/struct_demo"
-	"awesomeProject/test"
 	"fmt"
 	"reflect"
+	"runtime"
+	"time"
 )
 
 func main() {
@@ -38,7 +39,7 @@ func main() {
 	//createArray()
 
 	//struct_demo.TestForStruct()
-	test.ListArticles()
+	//test.ListArticles()
 
 	//Test for Run()
 	//dog := new(struct_demo.Dog)
@@ -54,21 +55,29 @@ func main() {
 	//test = new(struct_demo.Cat)
 	//test.Run()
 
-	dog := new(struct_demo.Dog)
-	dog.ID = 1
-	dog.Name = "BeiBei"
-	dog.Age = 15
-	dog.Colour = "yellow"
-	action(dog)
-
-	cat := new(struct_demo.Cat)
-	cat.ID = 2
-	cat.Name = "DuDu"
-	cat.Age = 1
-	cat.Colour = "grey"
-	action(cat)
+	//dog := new(struct_demo.Dog)
+	//dog.ID = 1
+	//dog.Name = "BeiBei"
+	//dog.Age = 15
+	//dog.Colour = "yellow"
+	//action(dog)
+	//
+	//cat := new(struct_demo.Cat)
+	//cat.ID = 2
+	//cat.Name = "DuDu"
+	//cat.Age = 1
+	//cat.Colour = "grey"
+	//action(cat)
 
 	//action(new(struct_demo.Cat))
+
+	//并发
+	//fmt.Printf("cpu num = %d", runtime.NumCPU())
+	runtime.GOMAXPROCS(runtime.NumCPU() - 1)
+
+	go goroutine.Loop()
+	go goroutine.Loop()
+	time.Sleep(time.Second * 5)
 }
 
 func action(test interface_demo.Behavior) string {
@@ -76,7 +85,6 @@ func action(test interface_demo.Behavior) string {
 	test.Eat()
 	return "suc"
 }
-
 
 func createArray() {
 	//定义赋值一个数组方式一
