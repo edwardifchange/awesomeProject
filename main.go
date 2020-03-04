@@ -1,11 +1,10 @@
 package main
 
 import (
-	"awesomeProject/goroutine"
 	"awesomeProject/interface_demo"
+	"awesomeProject/point_demo"
 	"fmt"
 	"reflect"
-	"time"
 )
 
 func main() {
@@ -83,12 +82,17 @@ func main() {
 	//go goroutine.Receive()
 	//time.Sleep(time.Second * 10)
 
-	//协程同步
-	goroutine.Read()
-	go goroutine.Write()
-	goroutine.WG.Wait()
-	fmt.Println("all done !")
-	time.Sleep(time.Second * 60)
+	////协程同步
+	//goroutine.Read()
+	//go goroutine.Write()
+	//goroutine.WG.Wait()
+	//fmt.Println("all done !")
+	//time.Sleep(time.Second * 60)
+
+	//指针
+	//point_demo.TestPoint()
+
+	point_demo.TestPointArr()
 }
 
 func action(test interface_demo.Behavior) string {
@@ -108,11 +112,12 @@ func createArray() {
 	//fmt.Printf("%d\n", b)
 
 	// 定义赋值一个数组方式三
-	//c := [10]int{1, 2, 3}
-	//fmt.Printf("%d\n", c)
-
-	test := []string{"dog"}
-	fmt.Println(test)
+	c := [10]int{1, 2, 3}
+	//c := [...]int{}
+	fmt.Printf("%d\n", c)
+	//
+	//test := []string{"dog"}
+	//fmt.Println(test)
 }
 
 //makeSlice 创建切片
