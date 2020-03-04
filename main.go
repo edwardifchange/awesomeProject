@@ -77,11 +77,18 @@ func main() {
 	//go goroutine.Loop()
 	//time.Sleep(time.Second * 5)
 
-	//启动发送数据的协程
-	go goroutine.Send()
-	//启动接收数据的协程
-	go goroutine.Receive()
-	time.Sleep(time.Second * 10)
+	////启动发送数据的协程
+	//go goroutine.Send()
+	////启动接收数据的协程
+	//go goroutine.Receive()
+	//time.Sleep(time.Second * 10)
+
+	//协程同步
+	goroutine.Read()
+	go goroutine.Write()
+	goroutine.WG.Wait()
+	fmt.Println("all done !")
+	time.Sleep(time.Second * 60)
 }
 
 func action(test interface_demo.Behavior) string {
