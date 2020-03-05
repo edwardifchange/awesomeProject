@@ -99,8 +99,12 @@ func main() {
 	//point_demo.TestPointArr()
 
 	//序列化成json字节数组
-	json_demo.SerializeStruct()
-	json_demo.SerializeMap()
+	//json_demo.SerializeStruct()
+	//json_demo.SerializeMap()
+
+	//反序列化json
+	json_demo.DeSerializeStruct()
+	json_demo.DeSerializeMap()
 }
 
 func action(test interface_demo.Behavior) string {

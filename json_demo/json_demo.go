@@ -6,9 +6,13 @@ import (
 )
 
 type Server struct {
-	ServerName  string `json:"name"` //可映射名字
-	ServerIp    string `json:"ip"`
-	ServerPoint int    `json:"point"`
+	//ServerName  string `json:"name"` //可映射名字
+	//ServerIp    string `json:"ip"`
+	//ServerPoint int    `json:"point"`
+
+	ServerName  string
+	ServerIp    string
+	ServerPoint int
 }
 
 //序列化结构体
@@ -39,4 +43,28 @@ func SerializeMap() {
 		return
 	}
 	fmt.Println("Marshal json : ", string(b)) //将json字节数组转化为string
+}
+
+//反序列化结构体
+func DeSerializeStruct() {
+	jsonString := `{"ServerIp":"192.168.31.100","ServerName":"Demo-for-json-map","ServerPoint":9090}`
+	server := new(Server)
+	err := json.Unmarshal([]byte(jsonString), &server)
+	if err != nil{
+		fmt.Println("Unmarshal error : ", err.Error())
+		return
+	}
+	fmt.Println("Unmarshal struct : ", server)
+}
+
+//反序列化map
+func DeSerializeMap() {
+	jsonString := `{"ServerIp":"192.168.31.100","ServerName":"Demo-for-json-map","ServerPoint":9090}`
+	server := make(map[string]interface{})
+	err := json.Unmarshal([]byte(jsonString), &server)
+	if err != nil{
+		fmt.Println("Unmarshal error : ", err.Error())
+		return
+	}
+	fmt.Println("Unmarshal map : ", server)
 }
