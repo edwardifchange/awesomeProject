@@ -2,7 +2,7 @@ package main
 
 import (
 	"awesomeProject/interface_demo"
-	"awesomeProject/json_demo"
+	"awesomeProject/sugar_demo"
 	"fmt"
 	"reflect"
 )
@@ -103,8 +103,12 @@ func main() {
 	//json_demo.SerializeMap()
 
 	//反序列化json
-	json_demo.DeSerializeStruct()
-	json_demo.DeSerializeMap()
+	//json_demo.DeSerializeStruct()
+	//json_demo.DeSerializeMap()
+
+	//测试语法糖
+	sugar_demo.Sugar1("A", "B", "C")
+	sugar_demo.Sugar2()
 }
 
 func action(test interface_demo.Behavior) string {
