@@ -1,8 +1,8 @@
 package main
 
 import (
-	"awesomeProject/goroutine"
 	"awesomeProject/interface_demo"
+	"awesomeProject/json_demo"
 	"fmt"
 	"reflect"
 )
@@ -73,13 +73,13 @@ func main() {
 	//fmt.Printf("cpu num = %d", runtime.NumCPU())
 	//runtime.GOMAXPROCS(runtime.NumCPU() - 1)
 	//go goroutine.Loop()
-	go goroutine.Loop()
+	//go goroutine.Loop()
 	//time.Sleep(time.Second * 5)
 
 	//scan函数会识别空格左右的内容，哪怕换行符号存在也不会影响scan对内容的获取。
 	//scanln函数会识别空格左右的内容，但是一旦遇到换行符就会立即结束，不论后续还是否存在需要带输入的内容。
-	var input string
-	fmt.Scanln(&input)
+	//var input string
+	//fmt.Scanln(&input)
 
 	////启动发送数据的协程
 	//go goroutine.Send()
@@ -96,8 +96,11 @@ func main() {
 
 	//指针
 	//point_demo.TestPoint()
-
 	//point_demo.TestPointArr()
+
+	//序列化成json字节数组
+	json_demo.SerializeStruct()
+	json_demo.SerializeMap()
 }
 
 func action(test interface_demo.Behavior) string {
